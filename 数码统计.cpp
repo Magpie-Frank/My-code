@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<string.h>
 int main()
 {
 	int la,lb;
@@ -13,8 +14,8 @@ int main()
 		}	//TODO
 	}
 	scanf("%s",&pb);
-	la=sizeof(pa)-1;
-	lb=sizeof(pb)-1;
+	la=strlen(pa)-1;
+	lb=strlen(pb)-1;
 	
 	return 0;
 }
