@@ -3,7 +3,7 @@
 int main()
 {
 	int la,lb;
-	char pa[11],pb[11];
+	char pa[12],pb[12];
 	for(int i=0;i<=12;i++)
 	{
 		scanf("%c",&pa[i]);
@@ -11,11 +11,15 @@ int main()
 		{
 			pa[i]='\0';
 			break;
-		}	//TODO
+		}
 	}
 	scanf("%s",&pb);
 	la=strlen(pa)-1;
 	lb=strlen(pb)-1;
-	
+	int shuma(char x[],char y[]);
 	return 0;
+}
+int shuma(char x[],char y[])
+{
+	
 }
