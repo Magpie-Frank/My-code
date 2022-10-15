@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main()
+{
+	char ran[26],mag[26];
+	long int i;
+	char att;
+	do
+	{
+	scanf("%c",&att);
+	if(att=='"')
+		do
+	}while(1);
+	return 0;
+}
