@@ -7,6 +7,7 @@ int main()
 	do{
 		n=0;m=0;
 		scanf("%d %d",&n,&m);
+		t=0;
 		for(i=n;i<=m;i++)
 		{
 			b=sxh(i);
