@@ -1,8 +1,10 @@
 #include<stdio.h>
-int m;
 int main()
 {
-	scanf("%d",&m);
-	printf("%d",m);
+	for(int i=1;i<=100;i++)
+	{
+		int a=1;
+	}
+	printf("%d",i);
 	return 0;
 }
