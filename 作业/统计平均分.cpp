@@ -16,10 +16,16 @@ int main()
 		if((arr[i]<-1)||(arr[i]>100))
 		{
 			arr[i]=0;
-			c--;
+			n++;
+			continue;
 		}
 		av=av+arr[i];
 		c++;
+	}
+	if(c<=0)
+	{
+		printf("0.00");
+		return 0;
 	}
 	av=av/c;
 	printf("%.2f",av);
