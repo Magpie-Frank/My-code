@@ -1,10 +1,42 @@
 #include<stdio.h>
+#define N 10
+
 int main()
 {
-	for(int i=1;i<=100;i++)
+	int peopleNum[10];
+	int totalNum = 10;
+	int restNum = 0;
+	int count = 0;
+	int n=0;
+	scanf("%d",&n);
+
+	for (int i = 0; i < totalNum; i++)
 	{
-		int a=1;
+		peopleNum[i] = i + 1;
 	}
-	printf("%d",i);
-	return 0;
+
+	restNum = totalNum;
+
+	while (restNum>1)
+	{
+		int* curNum = peopleNum;
+		while (curNum<peopleNum+totalNum)
+		{
+			if (*curNum!=0)
+			{
+				count++;
+				if (count==n)
+				{
+					*curNum = 0;
+					count = 1;
+					restNum--;
+					printf("%-3d",curNum-peopleNum+1);
+				}
+			}
+			curNum++;
+		}
+	}
+
+
 }
+
