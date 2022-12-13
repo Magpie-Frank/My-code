@@ -1,42 +1,16 @@
-#include<stdio.h>
-#define N 10
-
+#include <stdio.h>
+struct stu
+{
+int x;
+int *y;
+}*p;
+int dt[4]={10,20,30,40};
+struct stu a[4]={40,&dt[0],50,&dt[1],60,&dt[2],70,&dt[3]};
 int main()
 {
-	int peopleNum[10];
-	int totalNum = 10;
-	int restNum = 0;
-	int count = 0;
-	int n=0;
-	scanf("%d",&n);
-
-	for (int i = 0; i < totalNum; i++)
-	{
-		peopleNum[i] = i + 1;
-	}
-
-	restNum = totalNum;
-
-	while (restNum>1)
-	{
-		int* curNum = peopleNum;
-		while (curNum<peopleNum+totalNum)
-		{
-			if (*curNum!=0)
-			{
-				count++;
-				if (count==n)
-				{
-					*curNum = 0;
-					count = 1;
-					restNum--;
-					printf("%-3d",curNum-peopleNum+1);
-				}
-			}
-			curNum++;
-		}
-	}
-
-
+p=a;
+printf("%d,",++p->x);
+printf("%d,",(++p)->x);
+printf("%d",++(*p->y));
+return 0;
 }
-
