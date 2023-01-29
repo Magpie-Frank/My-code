@@ -16,6 +16,7 @@ void AdminMenu();
 void CreateUserFolder(char* n);
 void BookIn();
 void BookOut();
+void love();
 int main()
 {
 	
@@ -123,6 +124,17 @@ void UserOut(char* name)
 	char book[20],ad1[50]="./Data/";
 	int n;
 	scanf("%s",book);
+	if(strcmp(book,"ProjectWCX")==0)
+	{
+		printf("#这个物品归属于一个特定的人，无法借阅\n");
+		char bir[10];
+		printf("#请证明你的身份，输入生日：\n");
+		scanf("%s",bir);
+		if(strcmp(bir,"20041115")==0)
+		{
+			love();
+		}
+	}
 	strcat(ad1,book);
 	strcat(ad1,".dat");
 	if((fp=fopen(ad1,"r"))==NULL)
@@ -157,10 +169,13 @@ void UserOut(char* name)
 		strcpy(ad2,Ad(name,"./Users/","bk"));
 		if((fp=fopen(ad2,"r"))==NULL)
 		{
+			printf("1");
 			fp=fopen(ad2,"w");
-			fprintf(fp,"%s\n",book);
+			fprintf(fp,"%s",book);
+			fclose(fp);
 			printf("#借阅成功！\n");
 			UserMenu(name);
+			return;
 		}
 		char book2[20];
 		if((x=fscanf(fp,"%s",book2))!=EOF)
@@ -168,8 +183,18 @@ void UserOut(char* name)
 			printf("#无法借阅！\n#以下书籍尚未归还：\n#%s\n",book2);
 			system("pause");
 			UserMenu(name);
+			return;
 		}
-		
+		else
+		{
+			fp=fopen(ad2,"w");
+			fprintf(fp,"%s",book);
+			fclose(fp);
+			printf("#借阅成功！\n");
+			system("pause");
+			UserMenu(name);
+			return;
+		}
 	}
 	return;
 }
@@ -359,5 +384,12 @@ void BookOut()
 	scanf("%d",&n);
 	if(n==1) BookOut();
 	if(n==0) AdminMenu();
+	return;
+}
+void love()
+{
+	printf(" ** ** \n*  *  *\n*     *\n *   * \n  * * \n   *   \n");
+	system("pause");
+	exit(0);
 	return;
 }
