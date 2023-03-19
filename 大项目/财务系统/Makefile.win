@@ -1,0 +1,38 @@
+# Project: 财务系统
+# Makefile created by Dev-C++ 6.7.5
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = timepin.o output.o menu.o inquire.o
+LINKOBJ  = timepin.o output.o menu.o inquire.o
+LIBS     = -L"d:/dev-cpp/mingw32/lib/gcc/mingw32/9.2.0/" -L"d:/dev-cpp/mingw32/lib/gcc/" -L"d:/dev-cpp/mingw32/mingw32/lib/" -L"d:/dev-cpp/mingw32/lib/" -L"D:/Dev-Cpp/MinGW32/lib" -L"D:/Dev-Cpp/MinGW32/mingw32/lib" -g3 -static
+INCS     = -I"d:/dev-cpp/mingw32/lib/gcc/mingw32/9.2.0/include" -I"d:/dev-cpp/mingw32/include" -I"d:/dev-cpp/mingw32/lib/gcc/mingw32/9.2.0/include-fixed"
+CXXINCS  = -I"d:/dev-cpp/mingw32/lib/gcc/mingw32/9.2.0/include/c++" -I"d:/dev-cpp/mingw32/lib/gcc/mingw32/9.2.0/include/c++/mingw32" -I"d:/dev-cpp/mingw32/lib/gcc/mingw32/9.2.0/include/c++/backward" -I"d:/dev-cpp/mingw32/lib/gcc/mingw32/9.2.0/include" -I"d:/dev-cpp/mingw32/include" -I"d:/dev-cpp/mingw32/lib/gcc/mingw32/9.2.0/include-fixed"
+BIN      = 财务系统.exe
+CXXFLAGS = $(CXXINCS) -Wall -Wextra -g3
+ENCODINGS = -finput-charset=utf-8 -fexec-charset=gbk
+CFLAGS   = $(INCS) -Wall -Wextra -g3
+RM       = del /q /f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "$(BIN)" $(LIBS)
+
+timepin.o: timepin.cpp
+	$(CPP) -c timepin.cpp -o timepin.o $(CXXFLAGS) 
+
+output.o: output.cpp timepin.h
+	$(CPP) -c output.cpp -o output.o $(CXXFLAGS) 
+
+menu.o: menu.cpp inquire.h output.h
+	$(CPP) -c menu.cpp -o menu.o $(CXXFLAGS) 
+
+inquire.o: inquire.cpp
+	$(CPP) -c inquire.cpp -o inquire.o $(CXXFLAGS) 
