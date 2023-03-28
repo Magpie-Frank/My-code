@@ -15,8 +15,9 @@ void search()
 	int n1,y1,r1;
 	int n2,y2,r2;
 	double sum=0;
-	printf("请输入起止日期（格式：年.月.日）");
-	scanf("%d.%d.%d%d.%d.%d",&n1,&y1,&r1,&n2,&y2,&r2);
+	printf("请输入起止日期（格式：年.月.日）\n");
+	scanf("%d.%d.%d",&n1,&y1,&r1);
+	scanf("%d.%d.%d",&n2,&y2,&r2);
 	if(n1>n2)
 	{
 		printf(" fail to enter!");
@@ -66,7 +67,7 @@ void search()
 			}
 		}
 	}
-    printf("总收支为%.2lf",sum);
+    printf("总收支为%.2lf\n",sum);
     fclose(fp);
 	return;
 }

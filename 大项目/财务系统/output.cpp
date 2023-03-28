@@ -9,6 +9,7 @@ void write()
 	double ac;
 	char tip[100],x;
 	printf("请逐行录入收支和备注，结束录入请输入#\n");
+	getchar();
 	while(1)
 	{
 		scanf("%c",&x);
@@ -19,7 +20,7 @@ void write()
 		scanf("%lf %s",&ac,tip);
 		getchar();
 		struct tm t=timepin();
-		fprintf(fp,"%d.%d.%d\t%c%lf\t%s\n",t.tm_year+1900,t.tm_mon,t.tm_mday,x,ac,tip);
+		fprintf(fp,"%d.%d.%d\t%c%lf\t%s\n",t.tm_year+1900,t.tm_mon+1,t.tm_mday,x,ac,tip);
 	}
 	fclose(fp);
 }
